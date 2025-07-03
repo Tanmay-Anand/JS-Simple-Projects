@@ -3,12 +3,12 @@ const quote = document.getElementById("quote");
 const sun = document.getElementById("main-sun");
 const moon = document.getElementById("main-moon");
 const earth = document.getElementById("main-earth");
-const mars = document.getElementById("main-mars"); // Ensure mars is correctly selected
+const mars = document.getElementById("main-mars"); 
 
 const cloudLeft = document.querySelector(".cloud-bottom-left");
 const cloudRight = document.querySelector(".cloud-top-right");
 
-// Function to create and append stars
+// stars
 function createStars(count, sizeClass) {
   for (let i = 0; i < count; i++) {
     const star = document.createElement("div");
@@ -19,12 +19,12 @@ function createStars(count, sizeClass) {
   }
 }
 
-// Generate stars when the script loads
+
 createStars(300, "small");
 createStars(100, "medium");
 createStars(50, "large");
 
-// --- Define a single animation end handler for both sun and moon ---
+// sun and moon 
 function handleAnimationEnd(event) {
   if (event.target === sun) {
     if (event.animationName === 'sunExitCurve') {
@@ -58,7 +58,7 @@ function handleAnimationEnd(event) {
   }
 }
 
-// --- Main Toggle Logic ---
+// --- Toggle  ---
 themeToggle.addEventListener("change", () => {
   const isDark = themeToggle.checked;
   document.body.classList.toggle("dark-mode");
@@ -93,7 +93,7 @@ themeToggle.addEventListener("change", () => {
     cloudLeft.classList.add("cloud-exit-left");
     cloudRight.classList.add("cloud-exit-right");
 
-    // NEW: Add event listener for Mars when in dark mode
+    
     mars.addEventListener("mouseover", moveMarsRandomly);
 
   } else {
@@ -109,30 +109,28 @@ themeToggle.addEventListener("change", () => {
     cloudLeft.classList.add("cloud-enter-left");
     cloudRight.classList.add("cloud-enter-right");
 
-    // NEW: Remove event listener for Mars when not in dark mode
+    
     mars.removeEventListener("mouseover", moveMarsRandomly);
   }
 });
 
 
-// --- NEW: Function to move Mars randomly ---
+// move Mars randomly [Imported]
 function moveMarsRandomly() {
-  // Get current viewport dimensions
+  
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  // Get Mars's current dimensions to ensure it stays fully on screen
-  // Using getBoundingClientRect gives us the actual rendered size
+  
   const marsRect = mars.getBoundingClientRect();
   const marsWidth = marsRect.width;
   const marsHeight = marsRect.height;
 
-  // Calculate random positions
-  // Subtract marsWidth/Height to ensure the *entire* element is visible
+ 
   const newLeft = Math.random() * (vw - marsWidth);
   const newTop = Math.random() * (vh - marsHeight);
 
-  // Apply new positions
+  
   mars.style.left = `${newLeft}px`;
   mars.style.top = `${newTop}px`;
 }

@@ -10,7 +10,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Important for full-screen effects and preventing scrollbars */
+  overflow: hidden; 
 }
 
 body {
@@ -32,16 +32,16 @@ body.dark-mode {
   height: 100vh;
 }
 
-/* Sun & Moon Positioning and Sizing */
+/* Sun & Moon */
 #main-sun,
 #main-moon {
   position: absolute;
-  top: 56vh; /* Consistent vertical positioning relative to viewport height */
+  top: 56vh; 
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers the image */
+  transform: translate(-50%, -50%); 
   z-index: 2;
   
-  /* NO 'transition' property here for transform/opacity to avoid conflict with animations */
+  
 }
 
 #main-sun img,
@@ -49,27 +49,25 @@ body.dark-mode {
   width: 100%; 
   height: auto;
 }
-
-/* Base visibility for sun/moon */
 #main-sun {
-  width: 32vw; /* Scales with viewport width */
-  opacity: 1; /* Sun visible by default in light mode */
+  width: 32vw; 
+  opacity: 1; 
 }
 #main-moon {
-  width: 20vw; /* Scales with viewport width */
-  opacity: 0; /* Moon hidden by default */
+  width: 20vw; 
+  opacity: 0; 
 }
 
 
 
-/* Earth Positioning and Sizing */
+/* Earth */
 #main-earth {
   position: absolute;
-  bottom: -47vh; /* Consistent vertical positioning from bottom of viewport */
+  bottom: -47vh; 
   left: 50%;
-  transform: translateX(-50%) rotate(0deg); /* Centers horizontally */
+  transform: translateX(-50%) rotate(0deg); 
   z-index: 2;
-  transition: transform 2s ease; /* Earth's rotation transition */
+  transition: transform 2s ease; 
 }
 
 #main-earth.earth-rotate {
@@ -77,7 +75,7 @@ body.dark-mode {
 }
 
 #main-earth img {
-  width: 45vw; /* Scales with viewport width */
+  width: 45vw; 
   height: auto;
   object-fit: contain;
 }
@@ -104,7 +102,6 @@ body.dark-mode {
   bottom: 0px;
 }
 
-/* Exit cloud animations */
 .cloud-exit-left {
   animation: cloudExitLeft 1.5s ease forwards;
 }
@@ -113,7 +110,6 @@ body.dark-mode {
   animation: cloudExitRight 1.5s ease forwards;
 }
 
-/* Enter cloud animations */
 .cloud-enter-left {
   animation: cloudEnterLeft 1.5s ease forwards;
 }
@@ -122,7 +118,6 @@ body.dark-mode {
   animation: cloudEnterRight 1.5s ease forwards;
 }
 
-/* Cloud Keyframes */
 @keyframes cloudExitLeft {
   to {
     transform: translateX(-200%);
@@ -159,7 +154,7 @@ body.dark-mode {
   }
 }
 
-/* Quote Text */
+/* paragraph */
 .quote-text {
   position: absolute;
   top: 20%;
@@ -174,7 +169,6 @@ body.dark-mode {
   transition: opacity 0.6s ease;
 }
 
-/* Make quote white in dark mode */
 body.dark-mode .quote-text {
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -194,37 +188,35 @@ body.dark-mode .quote-text {
   z-index: 20;
 }
 
-/* Hide default HTML checkbox */
+
 #toggle {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Transitions for toggle button's SVG internal elements */
 #container,
 #patches,
 #stars1,
 #button,
-#sun, /* This refers to the sun inside the SVG, not #main-sun */
-#moon, /* This refers to the moon inside the SVG, not #main-moon */
+#sun, 
+#moon, 
 #cloud {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.25s;
 }
 
-/* night sky background for toggle button SVG */
+
 #toggle:checked+svg #container {
   fill: #2b4360;
 }
 
-/* move button to right when checked */
+
 #toggle:checked+svg #button {
   transform: translate(28px, 2.333px);
 }
 
-/* show/hide SVG sun and moon based on checkbox state */
 #sun {
   opacity: 1;
 }
@@ -241,7 +233,6 @@ body.dark-mode .quote-text {
   opacity: 1;
 }
 
-/* show or hide SVG cloud and stars based on checkbox state */
 #cloud {
   opacity: 1;
 }
@@ -274,8 +265,6 @@ body.dark-mode .quote-text {
   }
 }
 
-/* --- Main Sun/Moon Animation Keyframes --- */
-/* These keyframes define the entire movement and opacity change */
 @keyframes sunExitCurve {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -320,7 +309,7 @@ body.dark-mode .quote-text {
   }
 }
 
-/* --- Main Sun/Moon Animation Classes (Crucial: use 'forwards') --- */
+/* --- Exit Animation --- */
 .sun-exit-animate {
   animation: sunExitCurve 2s ease forwards;
 }
@@ -337,13 +326,13 @@ body.dark-mode .quote-text {
   animation: moonExitCurve 2s ease forwards;
 }
 
-/* --- Mars Styling --- */
+/* --- Mars --- */
 #main-mars {
   position: absolute;
   top: 5%;
   right: 5%;
   width: 10vw;
-  opacity: 0; /* Hidden by default */
+  opacity: 0; 
   z-index: 3;
   
   transition: opacity 0.5s ease-in-out, scale 0.3s ease-in-out, top 0.5s ease, left 0.5s ease;
@@ -354,18 +343,13 @@ body.dark-mode .quote-text {
   height: auto;
 }
 
-/* Mars visible in dark mode */
 body.dark-mode #main-mars {
   opacity: 1;
 }
 
-/* Mars Hover Effect */
-/* #main-mars:hover {
-  scale: 2;
-  transition: scale 0.3s ease-in-out; 
-} */
 
-/* --- Stars (Individual Divs) --- */
+
+/* --- Stars From Uiverse.io --- */
 .star {
   position: absolute;
   background-color: #fff;
@@ -390,7 +374,6 @@ body.dark-mode #main-mars {
   height: 3px;
 }
 
-/* When dark mode is active, show the stars */
 body.dark-mode .star {
   opacity: 1;
 }
@@ -400,8 +383,8 @@ body.dark-mode .star {
 .button-icon {
   font-family: 'Montserrat', sans-serif;
   z-index: 10; 
-  position: fixed; /* Keeps it in place on the screen */
-  bottom: 6vh;    /* 15px from the bottom */
+  position: fixed; 
+  bottom: 6vh;    
   right: 6vw; 
   display: flex;
   border: 3px #ffffff solid;
@@ -463,33 +446,33 @@ body.dark-mode .star {
 /* --- Media Queries --- */
 @media (max-width: 768px) {
   .quote-text {
-    font-size: 1.6rem; /* Slightly smaller font */
-    left: 10%; /* Adjust left position slightly */
-    right: 10%; /* Add right to constrain width */
-    max-width: none; /* Allow it to take up more width relative to screen */
-    text-align: left; /* Keep text aligned */
+    font-size: 1.6rem; 
+    left: 10%; 
+    right: 10%; 
+    max-width: none; 
+    text-align: left; 
   }
   .cloud img {
     width: 100px;
   }
 }
 
-/* For screens smaller than 480px (e.g., most smartphones) */
+/* smartphones */
 @media (max-width: 480px) {
   .quote-text {
-    font-size: 1.2rem; /* Even smaller font for mobile readability */
-    top: 10%; /* Move it up slightly to make more space */
-    left: 5%; /* Closer to left edge */
-    right: 5%; /* Closer to right edge */
-    max-width: none; /* Let it use available width */
-    line-height: 1.3; /* Adjust line height if needed */
+    font-size: 1.2rem; 
+    top: 10%; 
+    left: 5%; 
+    right: 5%; 
+    max-width: none; 
+    line-height: 1.3; 
   }
 }
+/* for safety small screen */
 
-/* For very small screens where the button might be too close */
 @media (max-width: 380px) {
     .quote-text {
-        font-size: 1rem; /* Smallest practical size */
-        top: 8%; /* Adjust top for very small screens */
+        font-size: 1rem; 
+        top: 8%; 
     }
 }
