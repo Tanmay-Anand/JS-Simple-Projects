@@ -435,12 +435,14 @@ body.dark-mode .star {
   background: #98c8ff;
   color: solid black;
   transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+  text-decoration: none;
 }
 
 .front {
   background: #222229;
   color: #fff;
   transform: translate3d(0, 0, 1em);
+  
 }
 
 /* --- Media Queries --- */
