@@ -478,3 +478,168 @@ body.dark-mode .star {
         top: 8%; 
     }
 }
+
+/* MOBILE VIEW */
+
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto; /* allow scrolling on mobile */
+  }
+
+  /* Quote */
+  .quote-text {
+    font-size: 1.2rem;
+    top: 12%;
+    left: 8%;
+    max-width: 80%;
+  }
+
+  /* Sun / Moon */
+  #main-sun,
+  #main-moon {
+    width: 35vw;
+    top: 55vh;
+  }
+
+  #main-moon {
+    width: 25vw;
+  }
+
+  /* Earth */
+  #main-earth img {
+    width: 60vw;
+  }
+  #main-earth {
+    bottom: -32vh;
+  }
+
+  /* Clouds */
+  .cloud img {
+    width: 90px;
+  }
+
+  .cloud-top-right {
+    right: 10px;
+    top: 5px;
+  }
+
+  /* Mars */
+  #main-mars {
+    width: 16vw;
+    top: 12%;
+    right: 8%;
+  }
+
+  /* Dark/Light Toggle Button */
+  #theme-toggle-button {
+    right: 5%;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 7em;
+  }
+
+  /* GitHub button */
+  .button-icon {
+    bottom: 4vh;
+    right: 4vw;
+    transform: scale(0.8);
+  }
+}
+
+/* =======================
+   EXTRA SMALL DEVICES
+   ======================= */
+@media (max-width: 480px) {
+  .quote-text {
+    font-size: 1rem;
+    top: 10%;
+    left: 7%;
+  }
+
+  #main-sun {
+    width: 45vw;
+    top: 52vh;
+  }
+  #main-moon {
+    width: 30vw;
+  }
+
+  #main-earth img {
+    width: 75vw;
+  }
+  #main-earth {
+    bottom: -25vh;
+  }
+
+  #main-mars {
+    right: 5%;
+    width: 22vw;
+  }
+
+  .cloud img {
+    width: 70px;
+  }
+
+  #theme-toggle-button {
+    width: 6em;
+    right: 4%;
+  }
+
+  .button-icon {
+    transform: scale(0.7);
+  }
+}
+
+/* =======================
+   ULTRA SMALL SCREEN FIX
+   ======================= */
+@media (max-width: 360px) {
+  .quote-text {
+    font-size: 0.9rem;
+    top: 8%;
+  }
+
+  #main-sun {
+    top: 50vh;
+    width: 50vw;
+  }
+
+  #main-earth img {
+    width: 85vw;
+  }
+
+  .cloud img {
+    width: 60px;
+  }
+
+  .button-icon {
+    transform: scale(0.65);
+  }
+}
+/* Bigger Earth on mobile */
+@media (max-width: 768px) {
+  #main-earth img {
+    width: 80vw;   /* previously 60vw */
+  }
+  #main-earth {
+    bottom: -38vh; /* lift it up slightly */
+  }
+}
+
+@media (max-width: 480px) {
+  #main-earth img {
+    width: 95vw;   /* previously 75vw */
+  }
+  #main-earth {
+    bottom: -30vh; /* make it visible */
+  }
+}
+
+@media (max-width: 360px) {
+  #main-earth img {
+    width: 110vw;  /* previously 85vw */
+  }
+  #main-earth {
+    bottom: -25vh;
+  }
+}
